@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ofertas do Mercado Livre com desconto, todos os dias. Entre nos grupos de WhatsApp e canais de Telegram.">
+<meta name="color-scheme" content="light dark">
+<title>Promoções e Cupons</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  /* Layout: coluna única estreita (link na bio, uso no celular). Cabeçalho da marca, depois dois blocos de links: WhatsApp e Telegram. */
+  :root {
+    --bg: #f6f4ef;
+    --surface: #ffffff;
+    --ink: #1b2330;
+    --muted: #5d6676;
+    --line: #e3dfd5;
+    --tag: #e8452c;        /* vermelho de etiqueta de preço: marca */
+    --tag-ink: #ffffff;
+    --wa: #1f9d55;
+    --wa-soft: #e3f4ea;
+    --tg: #2a8bd0;
+    --tg-soft: #e2f0fa;
+    --focus: #1b2330;
+    --font-display: "Bricolage Grotesque", "Trebuchet MS", system-ui, sans-serif;
+    --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #12161d; --surface: #1a2029; --ink: #eef1f6; --muted: #9aa3b3; --line: #2a3240;
+      --tag: #ff6a50; --tag-ink: #1a0d0a; --wa: #3fcf7e; --wa-soft: #16301f; --tg: #5eb4f0; --tg-soft: #15293a;
+      --focus: #eef1f6; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #12161d; --surface: #1a2029; --ink: #eef1f6; --muted: #9aa3b3; --line: #2a3240;
+    --tag: #ff6a50; --tag-ink: #1a0d0a; --wa: #3fcf7e; --wa-soft: #16301f; --tg: #5eb4f0; --tg-soft: #15293a;
+    --focus: #eef1f6; color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.5;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+    padding-block: 40px 32px;
+  }
+  .wrap { max-width: 480px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px; }
+
+  /* Marca */
+  header { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+  .mark { width: 72px; height: 72px; }
+  h1 {
+    margin: 0; font-family: var(--font-display); font-weight: 800;
+    font-size: 30px; line-height: 1.1; letter-spacing: -0.01em; text-wrap: balance;
+  }
+  .lead { margin: 0; color: var(--muted); max-width: 34ch; text-wrap: balance; }
+
+  /* Blocos */
+  section { display: flex; flex-direction: column; gap: 12px; }
+  .section-head { display: flex; align-items: center; gap: 10px; }
+  .section-head h2 {
+    margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 13px;
+    letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted);
+  }
+  .section-head::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+  .links { display: flex; flex-direction: column; gap: 8px; padding: 0; margin: 0; list-style: none; }
+
+  /* Botões */
+  a.link {
+    display: flex; align-items: center; gap: 14px; min-width: 0;
+    padding: 14px 16px; border-radius: 14px; text-decoration: none; color: var(--ink);
+    background: var(--surface); border: 1px solid var(--line);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+  }
+  a.link:hover { transform: translateY(-1px); border-color: var(--accent, var(--ink)); }
+  a.link:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+  .ico {
+    flex: none; width: 40px; height: 40px; border-radius: 10px;
+    display: grid; place-items: center; background: var(--accent-soft); color: var(--accent);
+  }
+  .ico svg { width: 22px; height: 22px; }
+  .txt { flex: 1; min-width: 0; display: flex; flex-direction: column; }
+  .txt strong { font-weight: 600; font-size: 16px; overflow-wrap: anywhere; }
+  .txt span { font-size: 13px; color: var(--muted); }
+  .go { flex: none; width: 18px; height: 18px; color: var(--muted); }
+
+  .wa { --accent: var(--wa); --accent-soft: var(--wa-soft); }
+  .tg { --accent: var(--tg); --accent-soft: var(--tg-soft); }
+
+  /* Destaque do canal geral: único botão preenchido */
+  a.link.main { background: var(--accent); border-color: var(--accent); color: #fff; padding: 16px; }
+  a.link.main .ico { background: rgba(255,255,255,0.2); color: #fff; }
+  a.link.main .txt span, a.link.main .go { color: rgba(255,255,255,0.85); }
+  .wa a.link.main { background: #1a8148; border-color: #1a8148; }
+  .tg a.link.main { background: #1f78b8; border-color: #1f78b8; }
+
+  footer { text-align: center; font-size: 12px; line-height: 1.5; color: var(--muted); display: flex; flex-direction: column; gap: 6px; }
+  footer p { margin: 0; text-wrap: balance; }
+
+  @media (prefers-reduced-motion: reduce) { a.link { transition: none; } a.link:hover { transform: none; } }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <svg class="mark" viewBox="0 0 72 72" role="img" aria-label="Etiqueta de preço com símbolo de porcentagem">
+      <path d="M8 10h30.5a4 4 0 0 1 2.8 1.2l21.5 21.5a4 4 0 0 1 0 5.6L38.6 60.8a4 4 0 0 1-5.6 0L11.2 39.3A4 4 0 0 1 10 36.5V12a2 2 0 0 1-2-2Z" fill="var(--tag)"/>
+      <circle cx="22" cy="24" r="4.5" fill="var(--bg)"/>
+      <g stroke="var(--tag-ink)" stroke-width="3.2" stroke-linecap="round" fill="none">
+        <path d="M43 27 27 48"/><circle cx="29.5" cy="31.5" r="3.4" /><circle cx="40.5" cy="43.5" r="3.4"/>
+      </g>
+    </svg>
+    <h1>Promoções e Cupons</h1>
+    <p class="lead">Ofertas do Mercado Livre com desconto de verdade, publicadas todos os dias. Entre no grupo ou canal que preferir.</p>
+  </header>
+
+  <section class="wa" aria-labelledby="h-wa">
+    <div class="section-head"><h2 id="h-wa">WhatsApp</h2></div>
+    <ul class="links" id="lista-wa"></ul>
+  </section>
+
+  <section class="tg" aria-labelledby="h-tg">
+    <div class="section-head"><h2 id="h-tg">Telegram</h2></div>
+    <ul class="links" id="lista-tg"></ul>
+  </section>
+
+  <footer>
+    <p>Participamos do Programa de Afiliados do Mercado Livre e podemos receber comissão pelas compras feitas pelos links, sem custo extra para você.</p>
+    <p>Preços e disponibilidade podem mudar a qualquer momento.</p>
+  </footer>
+</div>
+
+<script>
+  // Edite só esta parte para trocar links ou acrescentar grupos.
+  var WHATSAPP = [
+    { nome: "Grupo geral", desc: "As melhores ofertas de todas as categorias", url: "https://chat.whatsapp.com/DoQjBUHtSD5AAkvAUemxX2", destaque: true }
+  ];
+  var TELEGRAM = [
+    { nome: "Canal geral", desc: "As melhores ofertas de todas as categorias", url: "https://t.me/promocoesecupons_geral", destaque: true },
+    { nome: "Casa e Decoração", url: "https://t.me/promocoesecupons_casaemoveis", icone: "casa" },
+    { nome: "Fitness", url: "https://t.me/promocoesecupons_fitness", icone: "fitness" },
+    { nome: "Brinquedos", url: "https://t.me/promocoesecupons_brinquedos", icone: "brinquedo" },
+    { nome: "Beleza e Cuidado", url: "https://t.me/promocoesecupons_beleza", icone: "beleza" },
+    { nome: "Infantil e Bebê", url: "https://t.me/promocoesecupons_bebes", icone: "bebe" },
+    { nome: "Eletrônicos", url: "https://t.me/promocoesecupons_eletronicos", icone: "eletronico" },
+    { nome: "Eletrodomésticos", url: "https://t.me/promocoesecupons_eletrodomestico", icone: "eletrodomestico" },
+    { nome: "Celulares", url: "https://t.me/promocoesecupons_celulares", icone: "celular" }
+  ];
+
+  var S = 'fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"';
+  var ICONES = {
+    wa: '<svg viewBox="0 0 24 24" ' + S + '><path d="M4 20l1.2-4A8 8 0 1 1 8.2 19L4 20Z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-.8.8c-.9-.4-1.6-1.1-2-2l.8-.8-1-2L9 9.5Z"/></svg>',
+    tg: '<svg viewBox="0 0 24 24" ' + S + '><path d="M21 4 3 11l5.5 2L10 19l3-3.5 4.5 3.5L21 4Z"/><path d="m8.5 13 8-5.5"/></svg>',
+    casa: '<svg viewBox="0 0 24 24" ' + S + '><path d="M3 11 12 4l9 7"/><path d="M5.5 10v10h13V10"/><path d="M10 20v-5h4v5"/></svg>',
+    fitness: '<svg viewBox="0 0 24 24" ' + S + '><path d="M6 8v8M3.5 10v4M18 8v8M20.5 10v4M6 12h12"/></svg>',
+    brinquedo: '<svg viewBox="0 0 24 24" ' + S + '><rect x="4" y="12" width="16" height="8" rx="1.5"/><rect x="7" y="7" width="10" height="5" rx="1.5"/><path d="M10 7V5M14 7V5"/></svg>',
+    beleza: '<svg viewBox="0 0 24 24" ' + S + '><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8L12 3Z"/><path d="M19 17v4M17 19h4"/></svg>',
+    bebe: '<svg viewBox="0 0 24 24" ' + S + '><circle cx="12" cy="13" r="6.5"/><path d="M9.5 12.5h.01M14.5 12.5h.01M10 15.5c1.2 1 2.8 1 4 0"/><path d="M12 6.5c0-1.5 1-2.5 2.5-2.5"/></svg>',
+    eletronico: '<svg viewBox="0 0 24 24" ' + S + '><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2.5 19h19"/></svg>',
+    eletrodomestico: '<svg viewBox="0 0 24 24" ' + S + '><rect x="5" y="3" width="14" height="18" rx="2"/><circle cx="12" cy="13" r="4"/><path d="M8 6.5h.01M11 6.5h2"/></svg>',
+    celular: '<svg viewBox="0 0 24 24" ' + S + '><rect x="7" y="3" width="10" height="18" rx="2"/><path d="M11 18h2"/></svg>'
+  };
+  var SETA = '<svg class="go" viewBox="0 0 24 24" ' + S + ' aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>';
+
+  function montar(lista, alvo, iconePadrao) {
+    var ul = document.getElementById(alvo);
+    lista.forEach(function (item) {
+      var li = document.createElement("li");
+      var a = document.createElement("a");
+      a.className = "link" + (item.destaque ? " main" : "");
+      a.href = item.url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var ico = item.destaque ? iconePadrao : (ICONES[item.icone] || ICONES[iconePadrao]);
+      a.innerHTML = '<span class="ico" aria-hidden="true">' + ICONES[ico === iconePadrao ? iconePadrao : item.icone] + '</span>' +
+        '<span class="txt"><strong></strong>' + (item.desc ? '<span></span>' : '') + '</span>' + SETA;
+      a.querySelector("strong").textContent = item.nome;
+      if (item.desc) a.querySelector(".txt span").textContent = item.desc;
+      li.appendChild(a);
+      ul.appendChild(li);
+    });
+  }
+  montar(WHATSAPP, "lista-wa", "wa");
+  montar(TELEGRAM, "lista-tg", "tg");
+</script>
+
+</body>
+</html>
